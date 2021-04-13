@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useAppSelector } from './store/hooks';
+import { Product } from './store/productsSlice';
 
 function App() {
+  const products = useAppSelector((state) => state.products.products);
+  console.log(products);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h3>
+          Products management system
+        </h3>
       </header>
+      <div>
+        {products.map((prod: Product) => <p>{prod.name}</p>)}
+      </div>
     </div>
   );
 }

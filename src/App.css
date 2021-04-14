@@ -15,7 +15,6 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,15 +23,73 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-body {
+  display: flex;
+  min-height: 80vh;
+  height: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-body-products-form {
+  flex: 1;
+  border-right: 1px solid #282c34;
 }
+
+.App-body-products-form-heading {
+  font-size: large;
+  font-weight: bold;
+}
+
+.App-body-products-form-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.App-body-products-form-fields input {
+  min-height: 1.5rem;
+  margin: 0.5rem 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.App-body-products-form-fields-submit-container {
+  display: flex;
+  justify-content: center;
+}
+
+.App-body-products-form-fields-submit-container button {
+  max-width: max-content;
+  padding: 1rem;
+  background-color: #00897B;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.App-body-products-form-fields-submit-container button:disabled {
+  background-color: #80CBC4;
+}
+
+.App-body-products-form-fields-submit-container button:hover:not(:disabled) {
+  cursor: pointer;
+  background-color: #004D40;
+}
+
+.App-body-products-table {
+  flex: 1;
+  margin-left: 3rem;
+}
+
+.App-body-products-table-heading {
+  font-size: large;
+  font-weight: bold;
+}
+
+.App-body-products-table-row {
+  display: flex; 
+}
+
+.App-body-products-table-row > p {
+  margin-right: 1rem;
+}
+

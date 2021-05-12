@@ -2,8 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from './store';
 
 export class Product {
-  id: number = 1
-  name: string = 'product'
+  _id: string = ''
+  Name: string = 'product'
 }
 
 interface ProductState {
@@ -11,7 +11,7 @@ interface ProductState {
 }
 
 const initialState: ProductState = {
-  products: [{ id: 1, name: 'Some name' }],
+  products: [],
 };
 
 export const productSlice = createSlice({
@@ -21,10 +21,15 @@ export const productSlice = createSlice({
     add: (state, action: PayloadAction<Product>) => {
       state.products.push(action.payload)
     },
+    set: (state, action) => {
+      state.products = action.payload;
+    }
   }
 });
 
 export const { add } = productSlice.actions;
+
+export const { set } = productSlice.actions;
 
 export const getList = (state: RootState) => state.products;
 

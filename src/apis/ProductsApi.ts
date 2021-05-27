@@ -6,6 +6,14 @@ class ProductsApi extends Api {
 
     return fetch(req);
   }
+
+  getProductTypes(){
+    return fetch(`${this.basicURL}/product_types`);
+  }
+
+  getProducts(){
+    return fetch(`${this.basicURL}/products`);
+  }
 }
 
 export default new ProductsApi();

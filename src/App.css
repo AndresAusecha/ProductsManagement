@@ -82,21 +82,10 @@
   background-color: #004D40;
 }
 
-.App-body-products-table {
+.App-body-products-list {
   flex: 1;
-  margin-left: 3rem;
 }
 
-.App-body-products-table-heading {
-  font-size: large;
+.App-body-products-list-no-found-msg, .App-body-products-list-msg {
   font-weight: bold;
 }
-
-.App-body-products-table-row {
-  display: flex; 
-}
-
-.App-body-products-table-row > p {
-  margin-right: 1rem;
-}
-

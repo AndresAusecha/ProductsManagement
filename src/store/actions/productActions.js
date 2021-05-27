@@ -1,9 +1,12 @@
-import { set } from './../productsSlice';
+import { set, setProds } from './../productsSlice';
+import productsApi from '../../apis/ProductsApi'
 
 export const setArrayOfProductTypes = async (dispatch) => {
-  fetch('http://localhost:5000/product_types')
-  .then((res) => res.json())
-  .then((resBody) => {
-    dispatch(set(resBody.typeProducts));
-  });
+  return productsApi.getProductTypes().then((res) => res.json())
+  .then((resBody) => dispatch(set(resBody.typeProducts)));
+}
+
+export const setArrayOfProducts = async (dispatch) => {
+  return productsApi.getProducts().then((res) => res.json())
+  .then((resBody) => dispatch(setProds(resBody.products)));
 }

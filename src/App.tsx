@@ -1,33 +1,36 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import { useAppSelector, useAppDispatch } from './store/hooks';
-import { Product } from './store/productsSlice';
-import { setArrayOfProductTypes } from './store/actions/productActions';
+import { Product, ProductType } from './store/productsSlice';
+import { setArrayOfProductTypes, setArrayOfProducts } from './store/actions/productActions';
 import AppHeader from './comps/AppHeader/AppHeader';
 import productsApi from './apis/ProductsApi'
+import { plainToClass } from 'class-transformer';
 
 function App() {
-  const products = useAppSelector((state) => state.products.products);
+  const prodTypes = useAppSelector((state) => state.products.productTypes);
+  const prods = useAppSelector((state) => state.products.products);
+  const classProductTypes = plainToClass(ProductType, prodTypes);
+  const classProducts = plainToClass(Product, prods);
   const [nameValue, setNameValue] = useState('');
   const [productType, setProductType] = useState('');
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     setArrayOfProductTypes(dispatch).catch((err) => alert(err));
+    setArrayOfProducts(dispatch).catch((err) => alert(err));
   }, []);
 
   const onClickHandler = () => {
     const body = { Name: nameValue, prodType: productType };
     
-    productsApi.create(body).then((res) => {
+    productsApi.create(body).then(() => {
       alert('Product inserted correclty');
+      setArrayOfProducts(dispatch).catch((err) => alert(err));
     }).catch((err) => {
       alert(`Eror: ${err}`);
     })
   }
-
-  console.log(productType);
-  console.log(nameValue);
   
   return (
     <div className="App">
@@ -41,9 +44,9 @@ function App() {
             <option value="">
               Select...
             </option>
-            {products.map((prod: Product) => (
-              <option key={prod._id} value={prod._id}>
-                {prod.Name}
+            {classProductTypes.map((prod: ProductType) => (
+              <option key={prod.getId()} value={prod.getId()}>
+                {prod.getName()}
               </option>
             ))}
           </select>
@@ -53,6 +56,17 @@ function App() {
             </button>
           </div>
         </div>
+      </div>
+      <div className="App-body-products-list">
+        {classProducts.length > 0 ? (
+          <>
+            <p className="App-body-products-list-msg">List of products</p>
+            {classProducts.flatMap((cp) => <p>{cp.getName()}</p>)}
+          </>
+          ) : (
+            <p className="App-body-products-list-no-found-msg" >No product found</p>
+          )
+        }
       </div>
       </div>
     </div>

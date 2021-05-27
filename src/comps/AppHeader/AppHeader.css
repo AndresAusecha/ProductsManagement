@@ -1,17 +1,15 @@
-.App-header-sidenav-bar {
-  position: absolute;
-  color: white;
-  background-color: #464a52d0;
-  width: 50%;
-  height: 100%;
-}
-
-.App-header-sidenav-bar-btn-div {
+.App-header {
+  background-color: #282c34;
   display: flex;
-  justify-content: end;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.App-header-sidenav-bar-btn-div > button {
+.App-header > h3 {
+  margin: 1.5rem 0 2rem 3rem;
+}
+
+.App-header-toggle-side-nav-btn {
   background-image: url(../../assets/icons/align-justify-solid.svg);
   background-size: 2.6rem;
   background-repeat: no-repeat;
@@ -22,10 +20,10 @@
   height: 3rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
-  margin: 1rem 1rem 0 0;
+  margin: 1rem 0 0 2rem;
 }
 
-.App-header-sidenav-bar-btn-div > button:hover {
+.App-header-toggle-side-nav-btn:hover {
   border: 1px solid white;
   cursor: pointer;
 }

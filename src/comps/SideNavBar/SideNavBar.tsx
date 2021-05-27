@@ -14,8 +14,9 @@ const SideNavBar: React.FC<SidenavBarProps> = ({ isVisible, toggleVisibility }) 
   return (
     <Modal>
       <div className="App-header-sidenav-bar">
-      <button onClick={()=> toggleVisibility(false)}>Hide navbar</button>
-        This is a shitty global bar
+        <div className="App-header-sidenav-bar-btn-div">
+          <button onClick={()=> toggleVisibility(false)} />
+        </div>
       </div>
     </Modal>
   )

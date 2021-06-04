@@ -1,4 +1,4 @@
-.App-header-sidenav-bar {
+.sidenav-bar {
   position: absolute;
   color: white;
   background-color: #464a52d0;
@@ -6,12 +6,13 @@
   height: 100%;
 }
 
-.App-header-sidenav-bar-btn-div {
+.sidenav-bar-btn-div {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+  margin: 0 1rem 0 1rem;
 }
 
-.App-header-sidenav-bar-btn-div > button {
+.sidenav-bar-btn-div > button {
   background-image: url(../../assets/icons/align-justify-solid.svg);
   background-size: 2.6rem;
   background-repeat: no-repeat;
@@ -25,7 +26,11 @@
   margin: 1rem 1rem 0 0;
 }
 
-.App-header-sidenav-bar-btn-div > button:hover {
+.sidenav-bar-btn-div > button:hover {
   border: 1px solid white;
   cursor: pointer;
+}
+
+.sidenav-bar-links-div {
+  margin: 1rem;
 }

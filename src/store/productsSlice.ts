@@ -3,11 +3,11 @@ import { RootState } from './store';
 
 export class ProductType {
   private _id: string
-  private Name: string;
+  private name: string;
 
   constructor(id: string, name: string){
     this._id  = id;
-    this.Name = name;
+    this.name = name;
   }
 
   getId(){
@@ -15,7 +15,7 @@ export class ProductType {
   }
 
   getName(){
-    return this.Name;
+    return this.name;
   }  
 }
 

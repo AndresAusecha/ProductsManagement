@@ -5,7 +5,7 @@ import NewProductTypeForm from './comps/NewProductType/NewProductTypeForm';
 function NoFound() {
   return (
     <div>
-      <h1 style={{ color: 'red' }}>
+      <h1 style={{ color: 'red', textAlign: 'center', width: '100%', }}>
         Error, page not found
       </h1>
     </div>

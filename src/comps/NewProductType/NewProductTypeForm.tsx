@@ -21,7 +21,7 @@ function NewProductTypeForm() {
       <AppHeader />
       <div className="new-product-type-content">
         <div className="new-product-type-content-form">
-          <input type="text" placeholder="New type of product name" onChange={(e) => {setName(e.target.value)}}/>
+          <input type="text" placeholder="New type of product" onChange={(e) => {setName(e.target.value)}}/>
           <button disabled={name.length===0} onClick={() => {
             productsApi.createType({ name }).then(() => {
               alert('Prodict type inserted');

@@ -23,6 +23,7 @@
   width: auto;
   align-items: center;
   border-right: 1px solid #282c34;
+  padding: 0 1rem;
 }
 
 .new-product-type-content-form input {
@@ -30,7 +31,7 @@
   padding: 0.5rem;
   border-radius: 0.25rem;
   max-height: 2rem;
-  max-width: 30%;
+  width: 40%;
 }
 
 .new-product-type-content-form button {

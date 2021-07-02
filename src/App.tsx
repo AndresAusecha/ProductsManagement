@@ -10,8 +10,9 @@ import { plainToClass } from 'class-transformer';
 function App() {
   const prodTypes = useAppSelector((state) => state.products.productTypes);
   const prods = useAppSelector((state) => state.products.products);
-  const classProductTypes = plainToClass(ProductType, prodTypes);
-  const classProducts = plainToClass(Product, prods);
+  const classProductTypes: Array<ProductType> = plainToClass(ProductType, prodTypes) ?? [];
+  const classProducts: Array<Product> = plainToClass(Product, prods) ?? [];
+
   const [nameValue, setNameValue] = useState('');
   const [productType, setProductType] = useState('');
   const dispatch = useAppDispatch();
@@ -19,10 +20,10 @@ function App() {
   useEffect(() => {
     setArrayOfProductTypes(dispatch).catch((err) => alert(err));
     setArrayOfProducts(dispatch).catch((err) => alert(err));
-  }, []);
+  }, [dispatch]);
 
   const onClickHandler = () => {
-    const body = { Name: nameValue, prodType: productType };
+    const body = { name: nameValue, prodType: productType };
     
     productsApi.create(body).then(() => {
       alert('Product inserted correclty');
@@ -61,7 +62,7 @@ function App() {
         {classProducts.length > 0 ? (
           <>
             <p className="App-body-products-list-msg">List of products</p>
-            {classProducts.flatMap((cp) => <p>{cp.getName()}</p>)}
+            {classProducts.flatMap((cp) => <p key={cp.getId()}>{cp.getName()}</p>)}
           </>
           ) : (
             <p className="App-body-products-list-no-found-msg" >No product found</p>

@@ -35,7 +35,9 @@ function NewProductTypeForm() {
           </button>
         </div>
         <div className="new-product-type-content-list">
-          {classProductTypes.map((cptype) => <div><p>{cptype.getName()}</p></div>)}
+          {classProductTypes.map((cptype) => (
+            <div key={cptype.getId()}><p>{cptype.getName()}</p></div>
+          ))}
         </div>
       </div>
     </div>

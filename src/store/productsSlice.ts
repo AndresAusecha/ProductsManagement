@@ -21,13 +21,15 @@ export class ProductType {
 
 export class Product {
   private _id: string;
-  private Name: string;
+  private name: string;
   private prodType: string;
+  private price: Number;
 
-  constructor(id: string, name: string, prodType: string){
+  constructor(id: string, name: string, prodType: string, price: Number){
     this._id  = id;
-    this.Name = name;
+    this.name = name;
     this.prodType = prodType;
+    this.price = price;
   }
 
   getId(){
@@ -35,11 +37,15 @@ export class Product {
   }
 
   getName(){
-    return this.Name;
+    return this.name;
   }
 
   getProdType(){
     return this.prodType;
+  }
+
+  getPrice(){
+    return this.price;
   }
 }
 

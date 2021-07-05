@@ -13,8 +13,9 @@ function App() {
   const classProductTypes: Array<ProductType> = plainToClass(ProductType, prodTypes) ?? [];
   const classProducts: Array<Product> = plainToClass(Product, prods) ?? [];
 
-  const [nameValue, setNameValue] = useState('');
-  const [productType, setProductType] = useState('');
+  const [nameValue, setNameValue] = useState<String>('');
+  const [priceValue, setPriveVal] = useState<Number>(0);
+  const [productType, setProductType] = useState<String>('');
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -23,10 +24,10 @@ function App() {
   }, [dispatch]);
 
   const onClickHandler = () => {
-    const body = { name: nameValue, prodType: productType };
+    const body = { name: nameValue, price: priceValue, prodType: productType };
     
     productsApi.create(body).then(() => {
-      alert('Product inserted correclty');
+      alert('Product inserted correctly');
       setArrayOfProducts(dispatch).catch((err) => alert(err));
     }).catch((err) => {
       alert(`Eror: ${err}`);
@@ -41,6 +42,7 @@ function App() {
         <p className="App-body-products-form-heading">Products form</p>
         <div className="App-body-products-form-fields">
           <input type="text" placeholder="Name" onChange={({ target: { value } }) => setNameValue(value) } />
+          <input type="number" placeholder="Price" onChange={({ target: { value } }) => setPriveVal(parseInt(value, 10)) } />
           <select name="Product type" id="" onChange={({ target: { value } }) => setProductType(value) }>
             <option value="">
               Select...

@@ -1,6 +1,7 @@
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import App from './App';
 import NewProductTypeForm from './comps/NewProductType/NewProductTypeForm';
+import SalesSummary from './comps/Sales/SalesSummay';
 
 function NoFound() {
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Switch>
         <Route component={NewProductTypeForm} path="/products/type/new" exact />
         <Route component={App} path="/products" exact />
+        <Route component={SalesSummary} path="/home" />
         <Route component={NoFound} path="/" />
       </Switch>
     </BrowserRouter>

@@ -13,13 +13,20 @@ const SideNavBar: React.FC<SidenavBarProps> = ({ isVisible, toggleVisibility }) 
   if(!isVisible) {
     return <></>;
   }
-  const links = [{
-    href: '/products',
-    label: 'Products list'
-  }, {
-    href: '/products/type/new',
-    label: 'New product type',
-  }]
+  const links = [
+    {
+      href: '/home',
+      label: 'Home',  
+    },
+    {
+      href: '/products',
+      label: 'Products list'
+    }, 
+    {
+      href: '/products/type/new',
+      label: 'New product type',
+    }
+  ];
   return (
     <Modal>
       <div className="sidenav-bar">

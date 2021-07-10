@@ -21,13 +21,13 @@ const SalesSummary = () => {
         </div>
         <div style={{ display: 'flex', justifyContent: 'center',  }}>
         <div>
+          <div style={{ display: 'flex' }}>
+            <p style={{ width: '15rem', margin: '0.7rem' }}><b> Id</b></p>
+            <p style={{ width: '15rem', margin: '0.7rem' }}><b> Total</b></p>
+            <p style={{ width: '15rem', margin: '0.7rem' }}><b> Date</b></p>
+          </div>
           {classSales.map((s) => (
             <>
-              <div style={{ display: 'flex' }}>
-                <p style={{ width: '15rem', margin: '0.7rem' }}>Id</p>
-                <p style={{ width: '15rem', margin: '0.7rem' }}>Total</p>
-                <p style={{ width: '15rem', margin: '0.7rem' }}>Date</p>
-              </div>
               <div style={{ display: 'flex' }}>
                 <p  style={{ width: '15rem', margin: '0.7rem' }}>
                   {s.getId()}

@@ -25,6 +25,10 @@ const SideNavBar: React.FC<SidenavBarProps> = ({ isVisible, toggleVisibility }) 
     {
       href: '/products/type/new',
       label: 'New product type',
+    },
+    {
+      href: '/sales/new',
+      label: 'New sale',
     }
   ];
   return (

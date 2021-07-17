@@ -11,7 +11,7 @@ class ProductsApi extends Api {
   }
 
   createType(body: any) {
-    const req = new Request(`${this.basicURL}/product_types`, 
+    const req = new Request(`${this.basicURL}/product_types`,
       { method: 'POST', body: JSON.stringify(body), headers: this.buildHeaders(),
     });
 
